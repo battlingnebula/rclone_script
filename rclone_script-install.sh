@@ -501,7 +501,8 @@ function 2cCompilePNGVIEW ()
 		# compile
 		# cd ~/raspidmx-master &&
 		make --makefile="~/raspidmx-master/Makefile" &&
-	
+		printf "$(date +%FT%T%:z):\t2cCompilePNGVIEW\tMADE\n" >> "${logfile}" &&
+
 		# move binary files
 		sudo mv ~/raspidmx-master/pngview/pngview /usr/bin >> "${logfile}" &&
 		sudo mv ~/raspidmx-master/lib/libraspidmx.so.1 /usr/lib >> "${logfile}" &&
