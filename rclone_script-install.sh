@@ -504,7 +504,7 @@ function 2cCompilePNGVIEW ()
 	{ #try
 		# compile
 		# cd ~/raspidmx-master &&
-		make --directory=~/raspidmx-master >> "${logfile}" &&
+		sudo make --directory=~/raspidmx-master >> "${logfile}" &&
 	
 		# move binary files
 		sudo mv ~/raspidmx-master/pngview/pngview /usr/bin >> "${logfile}" &&
