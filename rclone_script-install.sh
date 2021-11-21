@@ -501,8 +501,8 @@ function 2cCompilePNGVIEW ()
 	
 	{ #try
 		# compile
-		# cd ~/raspidmx-master &&
-		make --makefile="~/raspidmx-master/Makefile" &&
+		cd ~/raspidmx-master &&
+		make --makefile=Makefile &&
 		printf "$(date +%FT%T%:z):\t2cCompilePNGVIEW\tMADE\n" >> "${logfile}" &&
 
 		# move binary files
