@@ -477,11 +477,7 @@ function 2bGetPNGVIEWsource ()
 	printf "$(date +%FT%T%:z):\t2bGetPNGVIEWsource\tSTART\n" >> "${logfile}"
 	
 	{ #try
-		wget -P ~ https://www.dropbox.com/s/c7rgyapg74ysqbo/master.zip &&
-		unzip ~/master.zip &&
-		
-		printf "$(date +%FT%T%:z):\t2bGetPNGVIEWsource\tDONE\n" >> "${logfile}" &&
-	
+		wget -P ~ https://www.dropbox.com/s/c7rgyapg74ysqbo/master.zip && unzip ~/master.zip && printf "$(date +%FT%T%:z):\t2bGetPNGVIEWsource\tDONE\n" >> "${logfile}" &&
 		return 0
 	} || { #catch
 		printf "$(date +%FT%T%:z):\t2bGetPNGVIEWsource\tERROR\n" >> "${logfile}" &&
