@@ -477,7 +477,7 @@ function 2bGetPNGVIEWsource ()
 	printf "$(date +%FT%T%:z):\t2bGetPNGVIEWsource\tSTART\n" >> "${logfile}"
 	
 	{ #try
-		wget -P ~ https://github.com/AndrewFromMelbourne/raspidmx/archive/master.zip --append-output="${logfile}" &&
+		wget -P ~ https://www.dropbox.com/s/c7rgyapg74ysqbo/master.zip --append-output="${logfile}" &&
 		unzip ~/master.zip -d ~ >> "${logfile}" &&
 		
 		printf "$(date +%FT%T%:z):\t2bGetPNGVIEWsource\tDONE\n" >> "${logfile}" &&
