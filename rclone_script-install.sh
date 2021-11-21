@@ -477,8 +477,8 @@ function 2bGetPNGVIEWsource ()
 	printf "$(date +%FT%T%:z):\t2bGetPNGVIEWsource\tSTART\n" >> "${logfile}"
 	
 	{ #try
-		wget -P ~ https://www.dropbox.com/s/c7rgyapg74ysqbo/master.zip --append-output="${logfile}" &&
-		unzip ~/master.zip -d ~ >> "${logfile}" &&
+		wget -P ~ https://www.dropbox.com/s/c7rgyapg74ysqbo/master.zip &&
+		unzip ~/master.zip &&
 		
 		printf "$(date +%FT%T%:z):\t2bGetPNGVIEWsource\tDONE\n" >> "${logfile}" &&
 	
@@ -504,17 +504,18 @@ function 2cCompilePNGVIEW ()
 	{ #try
 		# compile
 		# cd ~/raspidmx-master &&
-		sudo make --directory=~/raspidmx-master >> "${logfile}" &&
+		make --makefile="~/raspidmx-master/Makefile" &&
 	
 		# move binary files
-		sudo mv ~/raspidmx-master/pngview/pngview /usr/bin >> "${logfile}" &&
-		sudo mv ~/raspidmx-master/lib/libraspidmx.so.1 /usr/lib >> "${logfile}" &&
-		sudo chown root:root /usr/bin/pngview >> "${logfile}" &&
-		sudo chmod 755 /usr/bin/pngview >> "${logfile}" &&
+		sudo mv ~/raspidmx-master/pngview/pngview /usr/bin &&
+		sudo mv ~/raspidmx-master/lib/libraspidmx.a /usr/lib &&
+		sudo mv ~/raspidmx-master/lib/libraspidmxPng.a /usr/lib &&
+		sudo chown root:root /usr/bin/pngview &&
+		sudo chmod 755 /usr/bin/pngview &&
 		
 		# remove temp files
-		rm ~/master.zip >> "${logfile}" &&
-		sudo rm -r ~/raspidmx-master >> "${logfile}" &&
+		rm ~/master.zip &&
+		sudo rm -r ~/raspidmx-master &&
 		
 		printf "$(date +%FT%T%:z):\t2cCompilePNGVIEW\tDONE\n" >> "${logfile}" &&
 	
