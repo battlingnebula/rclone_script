@@ -38,7 +38,7 @@ dialog \
 	--no-collapse \
 	--cr-wrap \
 	--yesno \
-		"\nThis script will configure RetroPie so that your savefiles and statefiles will be ${YELLOW}synchronized with a remote destination${NORMAL}. Several packages and scripts will be installed, see\n\n	https://github.com/battlingnebula/rclone_script/blob/master/ReadMe.md\n\nfor a rundown. In short, any time you ${GREEN}start${NORMAL} or ${RED}stop${NORMAL} a ROM the savefiles and savestates for that ROM will be ${GREEN}down-${NORMAL} and ${RED}uploaded${NORMAL} ${GREEN}from${NORMAL} and ${RED}to${NORMAL} a remote destination. To do so, RetroPie will be configured to put all savefiles and statefiles in distinct directories, seperated from the ROMS directories. This installer will guide you through the necessary steps. If you wish to see what exactly is done at each step, open a second console and execute\n	${YELLOW}tail -f ~/scripts/rclone_script/rclone_script-install.log${NORMAL}\n\nIf you already have some savefiles in the ROMS directory, you will need to ${YELLOW}move them manually${NORMAL} after installation. You can use the new network share\n	${YELLOW}\\\\$(hostname)\\saves${NORMAL}\nfor this.\n\nAre you sure you wish to continue?" \
+		"\nHey! This script will configure RetroPie so that your savefiles and statefiles will be ${YELLOW}synchronized with a remote destination${NORMAL}. Several packages and scripts will be installed, see\n\n	https://github.com/battlingnebula/rclone_script/blob/master/ReadMe.md\n\nfor a rundown. In short, any time you ${GREEN}start${NORMAL} or ${RED}stop${NORMAL} a ROM the savefiles and savestates for that ROM will be ${GREEN}down-${NORMAL} and ${RED}uploaded${NORMAL} ${GREEN}from${NORMAL} and ${RED}to${NORMAL} a remote destination. To do so, RetroPie will be configured to put all savefiles and statefiles in distinct directories, seperated from the ROMS directories. This installer will guide you through the necessary steps. If you wish to see what exactly is done at each step, open a second console and execute\n	${YELLOW}tail -f ~/scripts/rclone_script/rclone_script-install.log${NORMAL}\n\nIf you already have some savefiles in the ROMS directory, you will need to ${YELLOW}move them manually${NORMAL} after installation. You can use the new network share\n	${YELLOW}\\\\$(hostname)\\saves${NORMAL}\nfor this.\n\nAre you sure you wish to continue?" \
 	26 90 2>&1 > /dev/tty \
     || exit
 
@@ -506,10 +506,11 @@ function 2cCompilePNGVIEW ()
 		printf "$(date +%FT%T%:z):\t2cCompilePNGVIEW\tMADE\n" >> "${logfile}" &&
 
 		# move binary files
-		sudo mv ~/raspidmx-master/pngview/pngview /usr/bin >> "${logfile}" &&
-		sudo mv ~/raspidmx-master/lib/libraspidmx.so.1 /usr/lib >> "${logfile}" &&
-		sudo chown root:root /usr/bin/pngview >> "${logfile}" &&
-		sudo chmod 755 /usr/bin/pngview >> "${logfile}" &&
+		sudo mv ~/raspidmx-master/pngview/pngview /usr/bin &&
+		sudo mv ~/raspidmx-master/lib/libraspidmx.a /usr/lib &&
+		sudo mv ~/raspidmx-master/lib/libraspidmxPng.a /usr/lib &&
+		sudo chown root:root /usr/bin/pngview &&
+		sudo chmod 755 /usr/bin/pngview &&
 		
 		# remove temp files
 		rm ~/master.zip &&
