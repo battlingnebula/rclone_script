@@ -507,11 +507,10 @@ function 2cCompilePNGVIEW ()
 		make --makefile="~/raspidmx-master/Makefile" &&
 	
 		# move binary files
-		sudo mv ~/raspidmx-master/pngview/pngview /usr/bin &&
-		sudo mv ~/raspidmx-master/lib/libraspidmx.a /usr/lib &&
-		sudo mv ~/raspidmx-master/lib/libraspidmxPng.a /usr/lib &&
-		sudo chown root:root /usr/bin/pngview &&
-		sudo chmod 755 /usr/bin/pngview &&
+		sudo mv ~/raspidmx-master/pngview/pngview /usr/bin >> "${logfile}" &&
+		sudo mv ~/raspidmx-master/lib/libraspidmx.so.1 /usr/lib >> "${logfile}" &&
+		sudo chown root:root /usr/bin/pngview >> "${logfile}" &&
+		sudo chmod 755 /usr/bin/pngview >> "${logfile}" &&
 		
 		# remove temp files
 		rm ~/master.zip &&
