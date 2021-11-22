@@ -85,3 +85,11 @@ These are the sites I used as source:
 * https://github.com/RetroPie/RetroPie-Setup/wiki/Runcommand#runcommand-onstart-and-runcommand-onend-scripts
 * https://github.com/AndrewFromMelbourne/raspidmx
 * https://www.zeroboy.eu/tutorial-gbzbatterymonitor/
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+**Note by battlingnebula**:
+This project was made by Jandalf81.  
+However, I could not get it working as of November 2021 due to some error in PNGview installation, so I cloned the project and made some changes to install it, and it did the purpose.
+Imagemagick still doesn't install through script on Retropie easily because the sudo apt-get install imagemagick doesn't install it because the library is not updated. It is optional feature and installation goes smoothly once that process is skipped. 
+You can still compile it through imagemagick binary before installing the script if you want it's functionality. This guide will help you with that: https://imagemagick.org/script/install-source.php
+Do note that it is a lengthy process.
